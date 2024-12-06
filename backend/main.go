@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"task-manager/src/controller"
+	"task-manager/src/router"
 )
 
 func main() {
-	controller.Controller()
+	router.InitRouter()
 	fmt.Scanln()
 }

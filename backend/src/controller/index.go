@@ -1,9 +1,11 @@
 package controller
 
 import (
-	"fmt"
+	"github.com/gin-gonic/gin"
 )
 
-func Controller() {
-	fmt.Println("Hello World")
+func Greetings(c *gin.Context) {
+	c.IndentedJSON(200, gin.H{
+		"message": "Hello World",
+	})
 }
