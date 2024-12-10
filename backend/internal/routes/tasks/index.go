@@ -14,5 +14,6 @@ func RegisterTasksRoutes(router *gin.Engine, client *mongo.Client) {
 	controller := tasks_controller.NewTaskController(repository)
 	{
 		tasks.GET("/", controller.GetAllTasksController)
+		tasks.POST("/", controller.CreateTaskController)
 	}
 }

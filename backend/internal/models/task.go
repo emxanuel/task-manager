@@ -8,3 +8,8 @@ type Task struct {
 	Description string             `bson:"description,omitempty"`
 	CreatedAt   string             `bson:"createdAt,omitempty"`
 }
+
+type CreateTaskBody struct {
+	Title      string `json:"title" binding:"required"`
+	Decription string `json:"description"`
+}
