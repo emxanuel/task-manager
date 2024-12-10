@@ -6,7 +6,7 @@ type Task struct {
 	ID          primitive.ObjectID `bson:"_id,omitempty"`
 	Title       string             `bson:"title,omitempty"`
 	Description string             `bson:"description,omitempty"`
-	CreatedAt   string             `bson:"createdAt,omitempty"`
+	CreatedAt   primitive.DateTime `bson:"createdAt,omitempty"`
 }
 
 type CreateTaskBody struct {

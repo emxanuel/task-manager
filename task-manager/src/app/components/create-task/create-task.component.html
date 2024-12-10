@@ -1,0 +1,19 @@
+<form (submit)="onSubmit($event)" class="flex flex-col gap-2">
+  <div class="flex justify-between">
+    <h1 class="text-4xl font-bold pb-6">Task manager</h1>
+    <button [disabled]="isLoading" class="bg-white text-black" hlmBtn>Add task</button>
+  </div>
+  <input
+    class="flex-[4]"
+    hlmInput
+    type="text"
+    placeholder="A task I have to do"
+    #taskTitleInput
+  />
+  <textarea
+    #taskDescriptionInput
+    hlmInput
+    placeholder="My task's description"
+    class="min-h-40"
+  ></textarea>
+</form>

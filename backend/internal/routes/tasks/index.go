@@ -9,7 +9,7 @@ import (
 )
 
 func RegisterTasksRoutes(router *gin.Engine, client *mongo.Client) {
-	tasks := router.Group("/tasks")
+	tasks := router.Group("/api/tasks/")
 	repository := tasks_repository.NewTaskRepository(client)
 	controller := tasks_controller.NewTaskController(repository)
 	{
