@@ -15,11 +15,15 @@ export class TaskListComponent implements OnInit {
   loading: boolean = false;
   error: string = '';
   
-  constructor(private taskService: TaskService) {}
-  
-  ngOnInit(): void {
-    this.loading = true;
-    
+  constructor(private taskService: TaskService) {
+    this.taskService.dataStatus.subscribe(data => {
+      if (data === 'data updated'){
+        this.fetchData()
+      }
+    })
+  }
+
+  private fetchData = () => {
     this.taskService.getTasks().subscribe({
       next: (tasks: GetTasksResponse) => {
         this.tasks = tasks;
@@ -30,5 +34,11 @@ export class TaskListComponent implements OnInit {
         this.loading = false;
       },
     });
+  }
+  
+  ngOnInit(): void {
+    this.loading = true;
+    
+    this.fetchData()
   }
 }

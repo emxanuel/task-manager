@@ -43,6 +43,7 @@ export class CreateTaskComponent {
       next: () => {
         this.taskTitleInput.nativeElement.value = ''
         this.taskDescriptionInput.nativeElement.value = ''
+        this.taskService.dataStatus.emit('data updated')
         
         this.isLoading = false;
       },
@@ -54,5 +55,6 @@ export class CreateTaskComponent {
         this.isError = true;
       },
     });
+
   }
 }
