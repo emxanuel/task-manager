@@ -54,3 +54,18 @@ func (r *Repository) Create(ctx context.Context, task task_model.Task) (*task_mo
 
 	return &newTask, nil
 }
+
+func (r *Repository) Delete(ctx context.Context, id string) (string, error) {
+	objectId, err := primitive.ObjectIDFromHex(id)
+	if err != nil {
+		return "", err
+	}
+
+	_, err = r.collection.DeleteOne(ctx, bson.M{"_id": objectId})
+
+	if err != nil {
+		return "", err
+	}
+
+	return "success", nil
+}

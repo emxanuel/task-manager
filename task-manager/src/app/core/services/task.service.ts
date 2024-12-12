@@ -20,5 +20,9 @@ export class TaskService {
     return this.http.post<Task>(this.baseUrl ,task)
   }
 
+  deleteTask(id: string) {
+    return this.http.delete(this.baseUrl + id)
+  }
+
   @Output() public dataStatus: EventEmitter<any> = new EventEmitter()
 }

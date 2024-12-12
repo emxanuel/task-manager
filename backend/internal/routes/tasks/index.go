@@ -15,5 +15,6 @@ func RegisterTasksRoutes(router *gin.Engine, client *mongo.Client) {
 	{
 		tasks.GET("/", controller.GetAllTasksController)
 		tasks.POST("/", controller.CreateTaskController)
+		tasks.DELETE("/:id", controller.DeleteTaskController)
 	}
 }
